@@ -12,7 +12,7 @@ namespace DinoVideo.Controllers
         // GET: Movies/Random
         public ActionResult Random()
         {
-            var movie = new Movie() { Name = "Jurasic Park" };
+            var movie = new Movie() { Name = "Jurassic Park" };
             return View(movie);
         }
     }
