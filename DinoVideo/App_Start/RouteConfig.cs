@@ -23,7 +23,12 @@ namespace DinoVideo
                 //URL Pattern
                 "movies/released/{year}/{month}",
                 //Use a generic anonymous object
-                new { controller = "Movies", action = "ByReleaseDate"});
+                new { controller = "Movies", action = "ByReleaseDate"},
+                //Make the year have to be four digits and month two digits
+                new { year = @"\d{4}", month = @"\d{2}" }
+                //Placea contrant on the year to be 2015 or 2016
+                //new { year = @"2015|2016", month = @"\d{2}" }
+                );
 
             routes.MapRoute(
                 name: "Default",

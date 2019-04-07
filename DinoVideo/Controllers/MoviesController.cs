@@ -24,38 +24,10 @@ namespace DinoVideo.Controllers
 
         }
 
-        /// <summary>
-        /// Example of Action Parameters
-        /// /movies/edit/1
-        /// or 
-        /// Query String example
-        /// /movies/edit?id=1
-        /// </summary>
-        public ActionResult Edit(int id)
+
+        public ActionResult ByReleaseDate(int year, int month)
         {
-            return Content("id=" + id);
-        }
-
-        /// <summary>
-        /// Example of parameter Action
-        /// Could return a view from the database
-        /// GOTO:
-        /// /movies
-        /// Can Override by doing
-        /// /movies?pageIndex=2&sortBy=ReleaseDate
-        /// </summary>
-        /// <param name="pageIndex">Is optional</param>
-        /// <param name="sortby"></param>
-        /// <returns>Could return a list of movies from DB</returns>
-        public ActionResult Index(int? pageIndex, string sortBy)
-        {
-            if (!pageIndex.HasValue)
-                pageIndex = 1;
-            if (string.IsNullOrWhiteSpace(sortBy))
-                sortBy = "Name";
-
-            return Content(string.Format("pageIndex={0}&sortBy={1}", pageIndex, sortBy));
-
+            return Content(year +  "/" + month);
         }
     }
 }
