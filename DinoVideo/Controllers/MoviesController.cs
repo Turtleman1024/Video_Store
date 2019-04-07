@@ -4,31 +4,45 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DinoVideo.Models;
+using DinoVideo.ViewModels;
 
 namespace DinoVideo.Controllers
 {
     public class MoviesController : Controller
     {
-        // GET: Movies/Random
-        public ActionResult Random()
+        public ViewResult Index()
         {
-            var movie = new Movie() { Name = "Jurassic Park" };
-            //Below are some example of Action Results
-            //return Content("Hello World!");
-            //return HttpNotFound();
-            //return new EmptyResult();
-            //If you look in the address bar it will show page=1&sortby=name
-            //return RedirectToAction("Index", "Home", new { page = 1, sortby = "name"});
+            var movies = GetMovies();
 
-            return View(movie);
+            return View(movies);
 
         }
 
-        //Attribute route
-        [Route("movies/released/{year}/{month:regex(\\d{4):range(1,12)}")]
-        public ActionResult ByReleaseDate(int year, int month)
+        private IEnumerable<Movie> GetMovies()
         {
-            return Content(year +  "/" + month);
+            return new List<Movie>
+            {
+                new Movie { Id = 1, Name = "Jurrasic Park"},
+                new Movie { Id = 2, Name = "Jurrasic World"}
+            };
+        }
+
+        //Get: Movies/Random
+        public ActionResult Random()
+        {
+            var movie = new Movie() { Name = "Shrek!" };
+            var customers = new List<Customer>
+            {
+                new Customer { Name = "Customer 1" },
+                new Customer { Name = "Customer 2" }
+            };
+
+            var viewModel = new RandomMovieViewModel
+            {
+                Movie = movie,
+                Customer = customers
+            };
+            return View(viewModel);
         }
     }
 }
