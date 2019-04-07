@@ -10,12 +10,14 @@ namespace DinoVideo.Controllers
     public class CustomersController : Controller
     {
         // GET: Customers
+        // "/Customers"
         public ViewResult Index()
         {
             var customers = GetCustomers();
             return View(customers);
         }
 
+        // "/Customers/Details/{int id}"
         public ActionResult Details(int id)
         {
             var customer = GetCustomers().SingleOrDefault(c => c.Id == id);

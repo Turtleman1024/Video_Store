@@ -8,6 +8,7 @@ using DinoVideo.ViewModels;
 
 namespace DinoVideo.Controllers
 {
+    // Get: "/Movies"
     public class MoviesController : Controller
     {
         public ViewResult Index()
