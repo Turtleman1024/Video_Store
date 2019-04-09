@@ -10,7 +10,7 @@ namespace DinoVideo.Controllers
     public class CustomersController : Controller
     {
         // GET: Customers
-        // "/Customers"
+        // "/Customers/Index"
         public ViewResult Index()
         {
             var customers = GetCustomers();
